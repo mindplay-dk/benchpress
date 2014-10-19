@@ -45,37 +45,25 @@ With reporting:
 Report output from the included "example.php" benchmark looks like this:
 
     OVERHEAD:    0.001 msec
-    BASELINE:    0.043 msec
+    BASELINE:    0.056 msec
     HOST OS:     WINNT
     PHP VERSION: 5.4.7
-    MIN. TIME:   500 msec
-    MIN. MARKS:  20
+    MIN. TIME:   2000 msec
+    MIN. MARKS:  30
 
-    * Completed: isset() on 1000 elements with 0% set using numeric keys
-    * Completed: array_key_exists() on 1000 elements with 0% set using numeric keys
-    * Completed: isset() on 1000 elements with 0% set using string keys
-    * Completed: array_key_exists() on 1000 elements with 0% set using string keys
-    * Completed: isset() on 1000 elements with 50% set using numeric keys
-    * Completed: array_key_exists() on 1000 elements with 50% set using numeric keys
-    * Completed: isset() on 1000 elements with 50% set using string keys
-    * Completed: array_key_exists() on 1000 elements with 50% set using string keys
-    * Completed: isset() on 1000 elements with 100% set using numeric keys
-    * Completed: array_key_exists() on 1000 elements with 100% set using numeric keys
-    * Completed: isset() on 1000 elements with 100% set using string keys
-    * Completed: array_key_exists() on 1000 elements with 100% set using string keys
+    * Completed: Native arrays
+    * Completed: Native properties
+    * Completed: Native synchronous methods
+    * Completed: Protected accessors
+    * Completed: Virtual accessors
+    * Completed: Type-checked accessors
 
     Results
     -------
 
-    isset() on 1000 elements with 0% set using numeric keys ..................... 0.015 msec ....... 0.361 points.............. 1.96%
-    isset() on 1000 elements with 50% set using numeric keys .................... 0.017 msec ....... 0.409 points.............. 2.21%
-    isset() on 1000 elements with 100% set using numeric keys ................... 0.022 msec ....... 0.519 points.............. 2.81%
-    isset() on 1000 elements with 0% set using string keys ...................... 0.103 msec ....... 2.411 points............. 13.07%
-    isset() on 1000 elements with 50% set using string keys ..................... 0.104 msec ....... 2.442 points............. 13.23%
-    isset() on 1000 elements with 100% set using string keys .................... 0.108 msec ....... 2.541 points............. 13.77%
-    array_key_exists() on 1000 elements with 0% set using numeric keys .......... 0.688 msec ...... 16.175 points............. 87.66%
-    array_key_exists() on 1000 elements with 50% set using numeric keys ......... 0.692 msec ...... 16.271 points............. 88.18%
-    array_key_exists() on 1000 elements with 100% set using numeric keys ........ 0.692 msec ...... 16.275 points............. 88.20%
-    array_key_exists() on 1000 elements with 0% set using string keys ........... 0.771 msec ...... 18.127 points............. 98.24%
-    array_key_exists() on 1000 elements with 50% set using string keys .......... 0.784 msec ...... 18.441 points............. 99.94%
-    array_key_exists() on 1000 elements with 100% set using string keys ......... 0.785 msec ...... 18.452 points............ 100.00%
+    Native arrays ..................... 0.014 msec ....... 0.249 points........ 40.33%......... 2.48x
+    Native properties ................. 0.014 msec ....... 0.254 points........ 41.18%......... 2.43x
+    Native synchronous methods ........ 0.021 msec ....... 0.381 points........ 61.80%......... 1.62x
+    Virtual accessors ................. 0.025 msec ....... 0.446 points........ 72.28%......... 1.38x
+    Protected accessors ............... 0.027 msec ....... 0.481 points........ 77.89%......... 1.28x
+    Type-checked accessors ............ 0.034 msec ....... 0.617 points....... 100.00%......... 1.00x
