@@ -66,8 +66,8 @@ class TextReport implements Report
             echo (
                 str_pad($result->description . ' ', $max_len, '.') .
                 str_pad(' ' . number_format(($result->average), 3) . ' msec ', 20, '.', STR_PAD_LEFT) .
-                str_pad(' ' . number_format(($result->points), 3) . ' points', 20, '.', STR_PAD_LEFT) .
-                str_pad(' ' . number_format(($result->average / $max_time * 100), 2) . '%', 15, '.', STR_PAD_LEFT) .
+                str_pad(' ' . number_format(($result->points), 3) . ' points ', 20, '.', STR_PAD_LEFT) .
+                str_pad(' ' . number_format(($result->average / $max_time * 100), 2) . '% ', 15, '.', STR_PAD_LEFT) .
                 str_pad(' ' . number_format(($result->average / $min_time), 2) . 'x', 15, '.', STR_PAD_LEFT) .
                 "\n"
             );
