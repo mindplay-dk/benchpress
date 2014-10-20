@@ -1,12 +1,11 @@
 mindplay/benchpress
-----------------
+-------------------
 
 A simple benchmark suite for PHP 5.3 and up.
 
-
-
 Basic usage:
 
+```PHP
     use mindplay\benchpress\Benchmark;
 
     $bench = new Benchmark();
@@ -18,9 +17,11 @@ Basic usage:
             // do the work...
         }
     );
+```
 
 With reporting:
 
+```PHP
     use mindplay\benchpress\Benchmark;
 
     $bench = new Benchmark();
@@ -41,6 +42,7 @@ With reporting:
     // Run the queued functions and generate a report:
 
     $bench->run();
+```
 
 Report output from the included "example.php" benchmark looks like this:
 
