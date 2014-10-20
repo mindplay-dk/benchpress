@@ -39,36 +39,31 @@ class Benchmark
         // a performance baseline for the PHP version / platform / etc.:
 
         $this->factor = $this->mark(function() {
-            $n = 12345.12345;
-            $s = str_repeat('0123456789', 10);
+            $v = 0;
+            $s = '';
+            $a = array();
 
-            $s1 = substr($s, 0, 20);
-            $s2 = substr($s, 10, 40) . $s1;
-            $s3 = substr($s, 20, 20) . $s2;
-            $s4 = substr($s3, 20, 40);
+            $fn = function($x) {
+                return (string) $x; // casting
+            };
 
-            $n1 = floor($n);
-            $n2 = round($n);
-            $n3 = sin($n);
-            $n4 = cos($n);
+            for ($i=0; $i<10; $i++) {
+                $v += $i; // integer
 
-            $a = array('foo'=>100, 'bar'=>200, 'baz'=>300);
-            $e = '{"foo":100,"bar":200,"baz":300}';
+                $b = $v > 50; // boolean
 
-            $j = json_encode($a);
-            $d = json_decode($e, true);
+                // branching:
 
-            if ($a !== $d) die('internal error (1)');
-            if ($e !== $j) die('internal error (2)');
+                if ($b) {
+                    $n = true;
+                } else {
+                    $n = false;
+                }
 
-            $a1 = $a['foo'];
-            $a2 = $a['bar'];
-            $a3 = $a['baz'];
+                $s .= $fn($i); // strings, function calls
 
-            $x1 = parse_url('scheme://domain:port/path?query_string#fragment_id');
-            $x2 = preg_match('/(?P<name>\w+): (?P<digit>\d+)/', 'foobar: 2008', $matches);
-            $x3 = date('Y-m-d H:i:s', strtotime('2014-02-13 09:36:27'));
-            $x4 = sha1('abcdefghijklmnopqrstuvwxyz', $x3);
+                $a[$i] = $n; // arrays
+            }
         });
 
         $this->min_time = $min_time;
