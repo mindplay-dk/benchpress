@@ -1,12 +1,11 @@
 mindplay/benchpress
-----------------
+-------------------
 
 A simple benchmark suite for PHP 5.3 and up.
 
-
-
 Basic usage:
 
+```PHP
     use mindplay\benchpress\Benchmark;
 
     $bench = new Benchmark();
@@ -18,9 +17,11 @@ Basic usage:
             // do the work...
         }
     );
+```
 
 With reporting:
 
+```PHP
     use mindplay\benchpress\Benchmark;
 
     $bench = new Benchmark();
@@ -41,6 +42,7 @@ With reporting:
     // Run the queued functions and generate a report:
 
     $bench->run();
+```
 
 Report output from the included "example.php" benchmark looks like this:
 
@@ -61,9 +63,9 @@ Report output from the included "example.php" benchmark looks like this:
     Results
     -------
 
-    Native arrays ..................... 0.011 msec ....... 0.260 points........ 43.42%......... 1.00x
-    Native properties ................. 0.011 msec ....... 0.269 points........ 44.88%......... 1.03x
-    Native synchronous methods ........ 0.016 msec ....... 0.385 points........ 64.27%......... 1.48x
-    Virtual accessors ................. 0.019 msec ....... 0.452 points........ 75.52%......... 1.74x
-    Protected accessors ............... 0.020 msec ....... 0.484 points........ 80.88%......... 1.86x
-    Type-checked accessors ............ 0.025 msec ....... 0.599 points....... 100.00%......... 2.30x
+    Native arrays ..................... 0.011 msec ...... 0.653 points ....... 43.55% ......... 1.00x
+    Native properties ................. 0.011 msec ...... 0.656 points ....... 43.81% ......... 1.01x
+    Native synchronous methods ........ 0.017 msec ...... 1.018 points ....... 67.92% ......... 1.56x
+    Virtual accessors ................. 0.019 msec ...... 1.137 points ....... 75.88% ......... 1.74x
+    Protected accessors ............... 0.021 msec ...... 1.238 points ....... 82.62% ......... 1.90x
+    Type-checked accessors ............ 0.025 msec ...... 1.499 points ...... 100.00% ......... 2.30x
