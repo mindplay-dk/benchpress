@@ -61,9 +61,9 @@ Report output from the included "example.php" benchmark looks like this:
     Results
     -------
 
-    Native arrays ..................... 0.014 msec ....... 0.249 points........ 40.33%......... 2.48x
-    Native properties ................. 0.014 msec ....... 0.254 points........ 41.18%......... 2.43x
-    Native synchronous methods ........ 0.021 msec ....... 0.381 points........ 61.80%......... 1.62x
-    Virtual accessors ................. 0.025 msec ....... 0.446 points........ 72.28%......... 1.38x
-    Protected accessors ............... 0.027 msec ....... 0.481 points........ 77.89%......... 1.28x
-    Type-checked accessors ............ 0.034 msec ....... 0.617 points....... 100.00%......... 1.00x
+    Native arrays ..................... 0.011 msec ....... 0.260 points........ 43.42%......... 1.00x
+    Native properties ................. 0.011 msec ....... 0.269 points........ 44.88%......... 1.03x
+    Native synchronous methods ........ 0.016 msec ....... 0.385 points........ 64.27%......... 1.48x
+    Virtual accessors ................. 0.019 msec ....... 0.452 points........ 75.52%......... 1.74x
+    Protected accessors ............... 0.020 msec ....... 0.484 points........ 80.88%......... 1.86x
+    Type-checked accessors ............ 0.025 msec ....... 0.599 points....... 100.00%......... 2.30x
