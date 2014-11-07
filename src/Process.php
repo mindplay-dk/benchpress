@@ -24,8 +24,11 @@ class Process
     /** @var float total time elapsed */
     public $elapsed;
 
-    /** @var int number of benchmarks completed */
+    /** @var int number of benchmarks completed (number of measurements) */
     public $marks;
+
+    /** @var int total number of iterations completed (number of times the benchmarked function was run) */
+    public $iterations;
 
     /** @var string benchmark description */
     public $description;

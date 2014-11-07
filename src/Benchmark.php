@@ -74,13 +74,14 @@ class Benchmark
     /**
      * Benchmark a given function immediately, without generating an entry in the Report.
      *
-     * @param Closure $func     the function to benchmark
-     * @param float   &$elapsed returns elapsed time in milliseconds
-     * @param int     &$marks   returns the number of benchmarks performed
+     * @param Closure $func        the function to benchmark
+     * @param float   &$elapsed    returns elapsed time in milliseconds
+     * @param int     &$marks      returns the number of benchmarks performed
+     * @param int     &$iterations returns the total number of iterations completed
      *
      * @return float average
      */
-    public function mark(Closure $func, &$elapsed = null, &$marks = null) {
+    public function mark(Closure $func, &$elapsed = null, &$marks = null, &$iterations = null) {
         $time = array();
         $elapsed = 0;
         $marks = -1; // ignore the first iteration
@@ -102,6 +103,8 @@ class Benchmark
                 $elapsed += $end - $start;
             }
         }
+
+        $iterations = $num_it * $marks;
 
         $weighted = $this->weighted_average($time);
 
@@ -145,7 +148,7 @@ class Benchmark
                 ? $this->mark($result->overhead)
                 : 0;
 
-            $result->average = $this->mark($result->function, $result->elapsed, $result->marks) - $overhead;
+            $result->average = $this->mark($result->function, $result->elapsed, $result->marks, $result->iterations) - $overhead;
             $result->points = $result->average / $this->factor;
 
             $report->progress($result);
