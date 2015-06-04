@@ -7,9 +7,14 @@ namespace mindplay\benchpress;
  */
 class TextReport implements Report
 {
-    /** @var bool true, to sort the benchmark results */
+    /**
+     * @var bool true, to sort the benchmark results
+     */
     public $sort = true;
 
+    /**
+     * @inheritdoc
+     */
     public function begin(Benchmark $bench)
     {
         echo (
@@ -22,11 +27,23 @@ class TextReport implements Report
         );
     }
 
+    /**
+     * @inheritdoc
+     */
     public function progress(Process $result)
     {
-        echo "* Completed: {$result->description}\n";
+        $elapsed = number_format($result->elapsed / 1000, 1);
+
+        $iterations = number_format($result->iterations);
+
+        $average = number_format($result->elapsed / $result->iterations, 3);
+
+        echo "* Completed: {$result->description} ({$iterations} iterations in {$elapsed} sec, avg. {$average} msec)\n";
     }
 
+    /**
+     * @inheritdoc
+     */
     public function finish(Benchmark $bench)
     {
         $results = $bench->results;
