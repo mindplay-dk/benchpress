@@ -7,13 +7,13 @@ use Closure;
 class Benchmark
 {
     /** @var int benchmark for at least this long (msec) */
-    public $min_time = 1000;
+    public $min_time = 300;
 
     /** @var int benchmark at least this many times */
     public $min_marks = 30;
 
     /** @var int iterate for at least this long (msec) between marks */
-    public $min_elapsed = 100;
+    public $min_elapsed = 10;
 
     /** @var float function call overhead in milliseconds */
     public $overhead = 0;
@@ -142,6 +142,15 @@ class Benchmark
         $report = $report ?: new TextReport();
 
         $report->begin($this);
+
+        // trigger any errors as early as possible:
+
+        foreach ($this->results as $result) {
+            $function = $result->function;
+            $function();
+        }
+
+        // run the benchmarks:
 
         foreach ($this->results as $result) {
             $overhead = $result->overhead
