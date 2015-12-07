@@ -88,6 +88,8 @@ class Benchmark
         $num_it = $this->min_iterations($func);
 
         while ($elapsed < $this->min_time || $marks < $this->min_marks) {
+            ob_start();
+
             $start = microtime(true) * 1000;
 
             for ($it=0; $it < $num_it; $it++) {
@@ -95,6 +97,8 @@ class Benchmark
             }
 
             $end = microtime(true) * 1000;
+
+            ob_clean();
 
             $marks += 1;
 
@@ -176,6 +180,8 @@ class Benchmark
         $it = 0;
         $elapsed = 0;
 
+        ob_start();
+
         $start = microtime(true) * 1000;
 
         while ($elapsed < $this->min_elapsed) {
@@ -186,7 +192,9 @@ class Benchmark
             $elapsed = microtime(true) * 1000 - $start;
         }
 
-        return $it;
+        ob_clean();
+
+        return min($it, 10000);
     }
 
     /**
