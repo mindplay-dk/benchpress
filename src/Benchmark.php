@@ -98,7 +98,7 @@ class Benchmark
 
             $end = microtime(true) * 1000;
 
-            ob_clean();
+            ob_end_clean();
 
             $marks += 1;
 
@@ -192,7 +192,7 @@ class Benchmark
             $elapsed = microtime(true) * 1000 - $start;
         }
 
-        ob_clean();
+        ob_end_clean();
 
         return min($it, 10000);
     }
