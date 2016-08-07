@@ -36,7 +36,7 @@ class TextReport implements Report
 
         $iterations = number_format($result->iterations);
 
-        $average = number_format(($result->elapsed - $result->overhead) / $result->iterations, 3);
+        $average = number_format($result->elapsed / $result->iterations, 3);
 
         echo "* Completed: {$result->description} ({$iterations} iterations in {$elapsed} sec, avg. {$average} msec)\n";
     }
